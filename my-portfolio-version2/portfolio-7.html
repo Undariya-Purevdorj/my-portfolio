@@ -77,55 +77,6 @@
             position: relative;
         }
 
-        /* Zen Circle Animation 
-        .zen-circle {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .zen-circle svg {
-            width: 100%;
-            height: 100%;
-            transform: rotate(-90deg);
-        }
-
-        .zen-path {
-            fill: none;
-            stroke: #000000;
-            stroke-width: 6;
-            stroke-linecap: round;
-            stroke-dasharray: 1200;
-            stroke-dashoffset: 1200;
-            opacity: 0;
-            animation: drawZenCircle 3s ease-in-out 0.5s forwards;
-            filter: blur(0.3px);
-        }
-
-        @keyframes drawZenCircle {
-            0% {
-                stroke-dashoffset: 1200;
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.9;
-            }
-            75% {
-                stroke-dashoffset: 0;
-                opacity: 0.9;
-            }
-            100% {
-                stroke-dashoffset: 0;
-                opacity: 0;
-            }
-        }
-        */
-
         /* Character container */
         .character-container {
             position: relative;
@@ -251,6 +202,29 @@
             letter-spacing: 0.5px;
         }
 
+        /* Project image */
+        .project-image-container {
+            margin: 15px 0 20px 0;          /* space above + below */
+            overflow: hidden;
+            border-radius: 10px;             /* subtle rounding, adjust to 0 if you want sharp */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);  /* very light shadow – optional, remove if unwanted */
+            border: 1px solid #e8e8e8;      /* faint border – optional */
+            max-width: 300px;                /* never overflows on mobile */
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;              /* crops nicely if not perfect ratio */
+        }
+
+        /* Optional: slight hover effect to match your other interactions */
+        .project-item:hover .project-image {
+            opacity: 0.92;
+            transition: opacity 0.25s ease;
+        }
+
         /* Connect */
         .connect-links {
             display: flex;
@@ -291,15 +265,15 @@
                 font-size: 32px;
             }
 
-            .zen-circle {
-                width: 280px;
-                height: 280px;
-            }
-
             section {
                 padding: 80px 20px;
             }
+
+            .project-image-container {
+                margin: 12px 0 16px 0;
+            }
         }
+
         .project-title a,
         .project-title a:link,
         .project-title a:visited,
@@ -330,20 +304,6 @@
 
     <div class="hero">
         <div class="hero-content">
-
-            <!-- 
-            <div class="zen-circle">
-                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                    <path class="zen-path" d="M 200,50 
-                        A 150,150 0 0,1 350,200
-                        A 150,150 0 0,1 200,350
-                        A 150,150 0 0,1 50,200
-                        A 150,150 0 0,1 180,55
-                        Q 160,45 140,50
-                        Q 120,55 105,70" />
-                </svg>
-            </div> 
-            -->
             <div class="character-container">
                 <img src="minecraft4.gif" alt="character" class="character-image">
             </div>
@@ -373,7 +333,12 @@
         
         <div class="project-item">
             <div class="project-title">
-                <a href="https://github.com/Undariya-Purevdorj/Dish-Detective-" target="_blank" class="project-link">dish detective</a>
+                <a href="https://github.com/Undariya-Purevdorj/Dish-Detective-" target="_blank">dish detective</a>
+            </div>
+            <div class="project-image-container">
+                <img src="assets/Dish Detective Game Play.png" 
+                     alt="Dish Detective project screenshot" 
+                     class="project-image">
             </div>
             <div class="project-description">
                 A quiz game that challenges players to identify world cuisines using clues about ingredients, appearance, and origin. 
@@ -384,7 +349,12 @@
 
         <div class="project-item">
             <div class="project-title">
-                <a href="https://github.com/Undariya-Purevdorj/BeWell-iOS-dev-app" target="_blank" class="project-link">bwell ios app</a>
+                <a href="https://github.com/Undariya-Purevdorj/BeWell-iOS-dev-app" target="_blank">bwell ios app</a>
+            </div>
+            <div class="project-image-container">
+                <img src="assets/BWell pic 1 .png" 
+                     alt="BeWell iOS app screenshot" 
+                     class="project-image">
             </div>
             <div class="project-description">
                 An iOS app to improve youth well-being through digital features. 
@@ -395,16 +365,17 @@
         </div>
 
         <div class="project-item">
-            <div class="project-title">project name three</div>
+            <div class="project-title">upcoming project</div>
+            <div class="project-image-container">
+                <img src="assets/project-three-screenshot.png" 
+                     alt="Project three screenshot" 
+                     class="project-image">
+            </div>
             <div class="project-description">
-                your third project description here. maybe this one showcases a different skill set 
-                or demonstrates your growth as a developer.
+                a project coming up soon.
             </div>
             <div class="project-tech">java / spring boot / mongodb</div>
         </div>
-
-
-        
     </section>
 
     <section id="technologies">
@@ -431,12 +402,10 @@
         <div class="connect-links">
             <a href="mailto:undariya.purevdorj@gmail.com" class="connect-link">email: undariya.purevdorj@gmail.com</a>
             <a href="https://github.com/Undariya-Purevdorj" class="connect-link" target="_blank">github: @undariya-purevdorj</a>
-            <!--<a href="https://linkedin.com/in/yourprofile" class="connect-link" target="_blank">linkedin: yourprofile</a>-->
             <a href="https://devpost.com/undariya-p?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" class="connect-link" target="_blank">devpost: @undariya-p</a>
             <a href="https://x.com/jokerNoir19" class="connect-link" target="_blank">X: @jokerNoir19</a>
             <a href="https://monkeytype.com/profile/jokerNoir19" class="connect-link" target="_blank">monkeytype: @jokernoir19</a>
             <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" class="connect-link" target="_blank">spotify: @undariya</a>
-            <!-- <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" class="connect-link" target="_blank">resume</a> -->
         </div>
     </section>
 
