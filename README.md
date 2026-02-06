@@ -1,8 +1,8 @@
-# undariya purevdorj – Portfolio
+# undariya purevdorj – portfolio
 
-Personal portfolio website  
-Computer Engineering student based in Toronto  
-Actively seeking 2025/2026 Software Engineering internships
+personal portfolio website  
+computer engineering student based in toronto  
+actively seeking 2025/2026 tech internships
 
 [→ Live Demo](https://undariya-purevdorj.github.io/)  
 *(replace with your actual deployed URL once hosted — GitHub Pages, Netlify, Vercel, etc.)*
@@ -11,7 +11,6 @@ Actively seeking 2025/2026 Software Engineering internships
 
 <!-- You can replace this with an actual screenshot or GIF later -->
 <img width="2817" height="1081" alt="image" src="https://github.com/user-attachments/assets/7da8466f-5027-447c-9837-b9b2b7c2fb47" />
-*(Add a real screenshot or short GIF here for better impact — use a tool like Lightshot, ShareX, or record a 5-second scroll)*
 
 ## Tech Stack
 
