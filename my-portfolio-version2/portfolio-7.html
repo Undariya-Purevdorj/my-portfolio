@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undariya purevdorj - portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
+            font-size: 16px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .logo {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            font-size: 13px;
+            letter-spacing: 0.8px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.5;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        /* Zen Circle Animation 
+        .zen-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .zen-circle svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .zen-path {
+            fill: none;
+            stroke: #000000;
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            opacity: 0;
+            animation: drawZenCircle 3s ease-in-out 0.5s forwards;
+            filter: blur(0.3px);
+        }
+
+        @keyframes drawZenCircle {
+            0% {
+                stroke-dashoffset: 1200;
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.9;
+            }
+            75% {
+                stroke-dashoffset: 0;
+                opacity: 0.9;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 0;
+            }
+        }
+        */
+
+        /* Character container */
+        .character-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .character-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Hi Text Animation */
+        .hi-text {
+            font-size: 56px;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.8s ease-out 1.8s forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+        }
+
+        section p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Technologies Section */
+        .tech-category {
+            margin-bottom: 30px;
+        }
+
+        .tech-category-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.8px;
+            color: #666;
+        }
+
+        .tech-list {
+            font-size: 15px;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        /* Projects */
+        .project-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.8px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+            letter-spacing: 0.3px;
+        }
+
+        .project-tech {
+            font-size: 12px;
+            margin-top: 10px;
+            color: #999;
+            letter-spacing: 0.5px;
+        }
+
+        /* Connect */
+        .connect-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .connect-link {
+            font-size: 15px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            display: inline-block;
+            letter-spacing: 0.4px;
+        }
+
+        .connect-link:hover {
+            opacity: 0.5;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 15px;
+                font-size: 10px;
+            }
+
+            .character-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            .hi-text {
+                font-size: 32px;
+            }
+
+            .zen-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+        }
+        .project-title a,
+        .project-title a:link,
+        .project-title a:visited,
+        .project-title a:active {
+            text-decoration: none !important;
+            color: #000000 !important;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.8px;
+        }
+
+        .project-title a:hover {
+            opacity: 0.5;
+            text-decoration: underline !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">undariya purevdorj</div>
+        <nav>
+            <a href="#about">about me</a>
+            <a href="#projects">projects</a>
+            <a href="#technologies">technologies</a>
+            <a href="#connect">contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+
+            <!-- 
+            <div class="zen-circle">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <path class="zen-path" d="M 200,50 
+                        A 150,150 0 0,1 350,200
+                        A 150,150 0 0,1 200,350
+                        A 150,150 0 0,1 50,200
+                        A 150,150 0 0,1 180,55
+                        Q 160,45 140,50
+                        Q 120,55 105,70" />
+                </svg>
+            </div> 
+            -->
+            <div class="character-container">
+                <img src="minecraft4.gif" alt="character" class="character-image">
+            </div>
+            <div class="hi-text">hi</div>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>about me</h2>
+        <p>
+            i'm a university student majoring in computer engineering; based in toronto. 
+        </p>
+        <p>
+            i'm interested in building systems that are both high-performance and secure.
+            substance > style 
+        </p>
+        <p>
+            i enjoy playing racquet sports (tennis, squash, etc).
+        </p>
+        <p>
+            currently focused on getting a swe internship. 
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>projects (click on them)</h2>
+        
+        <div class="project-item">
+            <div class="project-title">
+                <a href="https://github.com/Undariya-Purevdorj/Dish-Detective-" target="_blank" class="project-link">dish detective</a>
+            </div>
+            <div class="project-description">
+                A quiz game that challenges players to identify world cuisines using clues about ingredients, appearance, and origin. 
+                Built solo as a final class project to create an interactive way to expand culinary awareness through multiple-choice questions.
+            </div>
+            <div class="project-tech">js / node.js / html;css</div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">
+                <a href="https://github.com/Undariya-Purevdorj/BeWell-iOS-dev-app" target="_blank" class="project-link">bwell ios app</a>
+            </div>
+            <div class="project-description">
+                An iOS app to improve youth well-being through digital features. 
+                I handled back-end development with my team using React Native for the SHAD Design Entrepreneurship Challenge 2022.
+                no longer available on app store unfortunately.
+            </div>
+            <div class="project-tech">js / react native / ios </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-title">project name three</div>
+            <div class="project-description">
+                your third project description here. maybe this one showcases a different skill set 
+                or demonstrates your growth as a developer.
+            </div>
+            <div class="project-tech">java / spring boot / mongodb</div>
+        </div>
+
+
+        
+    </section>
+
+    <section id="technologies">
+        <h2>technologies & languages</h2>
+        
+        <div class="tech-category">
+            <div class="tech-category-title">languages</div>
+            <div class="tech-list">proficient in javascript, basic python, basic java</div>
+        </div>
+
+        <div class="tech-category">
+            <div class="tech-category-title">frameworks & tools</div>
+            <div class="tech-list">node.js, react js, react native, expo, django, mongodb, latex</div>
+        </div>
+
+        <div class="tech-category">
+            <div class="tech-category-title">interests</div>
+            <div class="tech-list">systems programming, cybersecurity </div>
+        </div>
+    </section>
+
+    <section id="connect">
+        <h2>connect with me (click on them)</h2>
+        <div class="connect-links">
+            <a href="mailto:undariya.purevdorj@gmail.com" class="connect-link">email: undariya.purevdorj@gmail.com</a>
+            <a href="https://github.com/Undariya-Purevdorj" class="connect-link" target="_blank">github: @undariya-purevdorj</a>
+            <!--<a href="https://linkedin.com/in/yourprofile" class="connect-link" target="_blank">linkedin: yourprofile</a>-->
+            <a href="https://devpost.com/undariya-p?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" class="connect-link" target="_blank">devpost: @undariya-p</a>
+            <a href="https://x.com/jokerNoir19" class="connect-link" target="_blank">X: @jokerNoir19</a>
+            <a href="https://monkeytype.com/profile/jokerNoir19" class="connect-link" target="_blank">monkeytype: @jokernoir19</a>
+            <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" class="connect-link" target="_blank">spotify: @undariya</a>
+            <!-- <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" class="connect-link" target="_blank">resume</a> -->
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Scroll animation for sections
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
