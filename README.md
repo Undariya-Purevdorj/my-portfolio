@@ -10,7 +10,7 @@ Actively seeking 2025/2026 Software Engineering internships
 ## Preview
 
 <!-- You can replace this with an actual screenshot or GIF later -->
-![Portfolio Preview](https://via.placeholder.com/1200x700/ffffff/000000?text=Portfolio+Preview+%E2%80%93+Hero+%26+Sections)  
+<img width="2817" height="1081" alt="image" src="https://github.com/user-attachments/assets/7da8466f-5027-447c-9837-b9b2b7c2fb47" />
 *(Add a real screenshot or short GIF here for better impact — use a tool like Lightshot, ShareX, or record a 5-second scroll)*
 
 ## Tech Stack
