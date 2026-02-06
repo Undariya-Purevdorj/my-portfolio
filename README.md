@@ -7,41 +7,40 @@ actively seeking 2025/2026 tech internships
 [→ Live Demo](https://undariya-purevdorj.github.io/)  
 *(replace with your actual deployed URL once hosted — GitHub Pages, Netlify, Vercel, etc.)*
 
-## Preview
+## preview
 
-<!-- You can replace this with an actual screenshot or GIF later -->
 <img width="2817" height="1081" alt="image" src="https://github.com/user-attachments/assets/7da8466f-5027-447c-9837-b9b2b7c2fb47" />
 
-## Tech Stack
+## tech stack
 
-- HTML5 + CSS3 (vanilla, no frameworks)  
-- Vanilla JavaScript (smooth scrolling, intersection observer for fade-ins)  
-- Google Fonts: DM Sans  
-- Pure CSS animations & transitions  
-- Fully responsive (mobile-first media queries)
+- html5 + css3 (vanilla, no frameworks)  
+- vanilla js (smooth scrolling, intersection observer for fade-ins)  
+- google fonts: DM Sans  
+- pure css animations & transitions  
+- fully responsive (mobile-first media queries)
 
-Intentionally lightweight: no build tools, no heavy JS libraries — fast load times and full control.
+intentionally lightweight: no build tools, no heavy JS libraries — fast load times and full control.
 
-## Key Features
+## key features
 
-- Fixed header with smooth-scroll navigation  
-- Animated hero section with character GIF and fade-in "hi" text  
-- Scroll-triggered section reveals  
-- Clean, lowercase typography-focused design  
-- Project cards with direct GitHub links  
-- Simple contact section with multiple platforms
+- fixed header with smooth-scroll navigation  
+- animated hero section with character GIF and fade-in "hi" text  
+- scroll-triggered section reveals  
+- clean, lowercase typography-focused design  
+- project cards with direct github links  
+- simple contact section with multiple platforms
 
-Philosophy: **substance > style** — high-performance, secure systems mindset reflected in the site itself.
+philosophy: **substance > style** — high-performance, secure systems mindset reflected in the site itself.
 
-## Projects Highlighted
+## projects highlighted
 
-- **Dish Detective** — cuisine identification quiz game  
+- **dish detective** — cuisine identification quiz game  
   [GitHub →](https://github.com/Undariya-Purevdorj/Dish-Detective-)  
-- **BeWell** — youth well-being iOS app (SHAD 2022 team project, backend focus)  
+- **bewell** — youth well-being iOS app (SHAD 2022 team project, backend focus)  
   [GitHub →](https://github.com/Undariya-Purevdorj/BeWell-iOS-dev-app)  
 - More projects being added / cleaned up
 
-## Run Locally
+## run locally
 
 1. Clone the repo:
    ```bash
