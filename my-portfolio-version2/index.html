@@ -204,45 +204,52 @@
 
         /* Project image */
         .project-image-container {
-            margin: 15px 0 20px 0;          /* space above + below */
+            margin: 15px 0 20px 0;
             overflow: hidden;
-            border-radius: 10px;             /* subtle rounding, adjust to 0 if you want sharp */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);  /* very light shadow – optional, remove if unwanted */
-            border: 1px solid #e8e8e8;      /* faint border – optional */
-            max-width: 300px;                /* never overflows on mobile */
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e8e8e8;
+            max-width: 300px;
         }
 
         .project-image {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;              /* crops nicely if not perfect ratio */
+            object-fit: cover;
         }
 
-        /* Optional: slight hover effect to match your other interactions */
         .project-item:hover .project-image {
             opacity: 0.92;
             transition: opacity 0.25s ease;
         }
 
-        /* Connect */
-        .connect-links {
+        /* Connect Icons */
+        .connect-icons {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            flex-direction: row;
+            gap: 32px;
+            margin-top: 24px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .connect-link {
-            font-size: 15px;
+        .connect-icon-link {
             color: #000000;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
+            transition: all 0.25s ease;
             display: inline-block;
-            letter-spacing: 0.4px;
         }
 
-        .connect-link:hover {
-            opacity: 0.5;
+        .connect-icon-link:hover {
+            opacity: 0.65;
+            transform: scale(1.15);
+        }
+
+        .connect-icon-link svg {
+            width: 40px;
+            height: 40px;
+            fill: currentColor;
+            stroke: none;
         }
 
         /* Mobile Responsive */
@@ -271,6 +278,15 @@
 
             .project-image-container {
                 margin: 12px 0 16px 0;
+            }
+
+            .connect-icons {
+                gap: 24px;
+            }
+
+            .connect-icon-link svg {
+                width: 36px;
+                height: 36px;
             }
         }
 
@@ -317,7 +333,8 @@
             i'm a university student majoring in computer engineering; based in toronto. 
         </p>
         <p>
-            i'm interested in building systems that are both high-performance and secure. 
+            i'm interested in building systems that are both high-performance and secure.
+            substance > style 
         </p>
         <p>
             i enjoy playing racquet sports (tennis, squash, etc).
@@ -366,9 +383,6 @@
         <div class="project-item">
             <div class="project-title">upcoming project</div>
             <div class="project-image-container">
-               <!-- <img src="assets/project-three-screenshot.png" 
-                     alt="Project three screenshot" 
-                     class="project-image"> -->
             </div>
             <div class="project-description">
                 a project coming up soon.
@@ -397,18 +411,58 @@
     </section>
 
     <section id="connect">
-        <h2>connect with me (click on them)</h2>
-        <div class="connect-links">
-            <a href="mailto:undariya.purevdorj@gmail.com" class="connect-link">email: undariya.purevdorj@gmail.com</a>
-            <a href="https://github.com/Undariya-Purevdorj" class="connect-link" target="_blank">github: @undariya-purevdorj</a>
-            <a href="https://devpost.com/undariya-p?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" class="connect-link" target="_blank">devpost: @undariya-p</a>
-            <a href="https://x.com/jokerNoir19" class="connect-link" target="_blank">X: @jokerNoir19</a>
-            <a href="https://monkeytype.com/profile/jokerNoir19" class="connect-link" target="_blank">monkeytype: @jokernoir19</a>
-            <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" class="connect-link" target="_blank">spotify: @undariya</a>
+        <h2>connect with me</h2>
+        <div class="connect-icons">
+            
+            <!-- Gmail -->
+            <a href="/cdn-cgi/l/email-protection#f88d969c998a918199d6888d8a9d8e9c978a92b89f95999194d69b9795" class="connect-icon-link" title="Email">
+                <svg width="40" height="40" viewBox="0 0 512 512" fill="currentColor">
+                    <circle cx="256" cy="256" r="256"/>
+                    <path fill="#ffffff" d="M384,128H128c-17.6,0-32,14.4-32,32v192c0,17.6,14.4,32,32,32h256c17.6,0,32-14.4,32-32V160C416,142.4,401.6,128,384,128z M384,352H128V192l128,80l128-80V352z M256,240l-128-80h256L256,240z"/>
+                </svg>
+            </a>
+    
+            <!-- GitHub -->
+            <a href="https://github.com/Undariya-Purevdorj" target="_blank" class="connect-icon-link" title="GitHub">
+                <svg width="40" height="40" viewBox="0 0 98 98" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M49 0C21.9 0 0 22.4 0 50c0 22.1 14.3 40.8 34.2 47.4 2.5.5 3.4-1.1 3.4-2.4 0-1.2 0-4.3-.1-8.5-13.6 3-16.5-6.6-16.5-6.6-2.3-5.8-5.5-7.3-5.5-7.3-4.5-3.1.3-3 .3-3 5 .4 7.7 5.2 7.7 5.2 4.5 7.6 11.7 5.4 14.6 4.2.5-3.2 1.7-5.4 3.2-6.7-11.1-1.3-22.8-5.6-22.8-24.7 0-5.5 1.9-9.9 5.1-13.4-.5-1.3-2.2-6.3.5-13.2 0 0 4.2-1.3 13.7 5.1 4-1.1 8.3-1.7 12.5-1.7 4.2 0 8.5.6 12.5 1.7 9.5-6.5 13.7-5.1 13.7-5.1 2.7 6.9 1 12 .5 13.2 3.2 3.5 5.1 7.9 5.1 13.4 0 19.2-11.7 23.4-22.8 24.7 1.8 1.5 3.4 4.6 3.4 9.3 0 6.7-.1 12.1-.1 13.7 0 1.3.9 2.9 3.4 2.4C83.7 90.8 98 72.1 98 50 98 22.4 76.1 0 49 0z"/>
+                </svg>
+            </a>
+    
+            <!-- Devpost -->
+            <a href="https://devpost.com/undariya-p?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank" class="connect-icon-link" title="Devpost">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="50" fill="currentColor"/>
+                    <path d="M35 25H50C58.284 25 65 31.716 65 40V60C65 68.284 58.284 75 50 75H35V25ZM42 32V68H50C54.418 68 58 64.418 58 60V40C58 35.582 54.418 32 50 32H42Z" fill="#ffffff"/>
+                </svg>
+            </a>
+    
+            <!-- X (Twitter) -->
+            <a href="https://x.com/jokerNoir19" target="_blank" class="connect-icon-link" title="X">
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="50" fill="currentColor"/>
+                    <path d="M58 42L75 22H70L56 38L43 22H27L45 52L27 73H32L47 56L61 73H77L58 42ZM49 53L47 50L32 25H40L53 46L55 49L70 70H62L49 53Z" fill="#ffffff"/>
+                </svg>
+            </a>
+    
+            <!-- Spotify -->
+            <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" target="_blank" class="connect-icon-link" title="Spotify">
+                <svg width="40" height="40" viewBox="0 0 496 512" fill="currentColor">
+                    <path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/>
+                </svg>
+            </a>
+
+            <!-- Monkeytype -->
+            <a href="https://monkeytype.com/profile/jokerNoir19" target="_blank" class="connect-icon-link" title="Monkeytype">
+                <svg width="40" height="40" viewBox="0 0 512 512" fill="currentColor">
+                    <path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/>
+                </svg>
+            </a>
+    
         </div>
     </section>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scroll for navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
