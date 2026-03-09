@@ -1,11 +1,10 @@
 # undariya purevdorj – portfolio
 
 personal portfolio website  
-computer engineering student based in toronto  
+computer security student based in toronto  
 actively seeking 2025/2026 tech internships
 
-[→ Live Demo](https://undariya-purevdorj.github.io/)  
-*(replace with your actual deployed URL once hosted — GitHub Pages, Netlify, Vercel, etc.)*
+[→ Live Demo](undariya.com)
 
 ## preview
 
