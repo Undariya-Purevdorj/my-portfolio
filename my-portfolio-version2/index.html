@@ -313,7 +313,8 @@
         <nav>
             <a href="#about">about me</a>
             <a href="#projects">projects</a>
-            <a href="#technologies">technologies</a>
+            <a href="#thoughts">thoughts</a>
+            <!-- <a href="#technologies">technologies</a> -->
             <a href="#connect">contact</a>
         </nav>
     </header>
@@ -328,7 +329,7 @@
     </div>
 
     <section id="about">
-        <h2>about me</h2>
+       <!-- <h2>about me</h2> -->
         <p>
             i'm a university student majoring in computer science; based in toronto. 
         </p>
@@ -390,6 +391,25 @@
         </div>
     </section>
 
+    
+    <section id="thoughts">
+    <h2>thoughts</h2>
+    <p style="margin-bottom: 30px; color: #666; font-size: 14px;">
+        i write occasionally on substack — personal thoughts and yapping to some extent.
+    </p>
+    <div id="substack-posts">
+        <p style="color: #999; font-size: 14px;">loading posts...</p>
+    </div>
+    <div style="margin-top: 30px;">
+        <a href="https://jokernoir19.substack.com" target="_blank" 
+           style="font-size: 13px; color: #000; letter-spacing: 0.8px; text-decoration: none; border-bottom: 1px solid #000; padding-bottom: 2px;">
+            read on substack →
+        </a>
+    </div>
+    </section>
+
+
+    <!-- 
     <section id="technologies">
         <h2>technologies & languages</h2>
         
@@ -407,7 +427,8 @@
             <div class="tech-category-title">interests</div>
             <div class="tech-list">systems programming, cybersecurity </div>
         </div>
-    </section>
+    </section> 
+    -->
 
     <section id="connect">
         <h2>connect with me</h2>
@@ -492,5 +513,35 @@
             observer.observe(section);
         });
     </script>
+
+    <script>
+    // Fetch Substack posts via RSS
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://jokernoir19.substack.com/feed')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('substack-posts');
+            if (!data.items || data.items.length === 0) {
+                container.innerHTML = '<p style="color: #999; font-size: 14px;">no posts yet — coming soon.</p>';
+                return;
+            }
+            container.innerHTML = data.items.map(post => {
+                const date = new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                return `
+                    <div style="margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #e0e0e0;">
+                        <a href="${post.link}" target="_blank" 
+                           style="font-size: 15px; font-weight: 700; color: #000; text-decoration: none; letter-spacing: 0.5px;">
+                            ${post.title.toLowerCase()}
+                        </a>
+                        <div style="font-size: 12px; color: #999; margin-top: 6px; letter-spacing: 0.5px;">${date}</div>
+                    </div>
+                `;
+            }).join('');
+        })
+        .catch(() => {
+            document.getElementById('substack-posts').innerHTML = 
+                '<p style="color: #999; font-size: 14px;">couldn\'t load posts right now. <a href="https://jokernoir19.substack.com" target="_blank" style="color: #000;">visit substack directly →</a></p>';
+        });
+</script>
+            
 </body>
 </html>
