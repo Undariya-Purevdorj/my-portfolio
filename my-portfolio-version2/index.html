@@ -356,15 +356,16 @@
                 <img
                     src="profilePicture.jpg"
                     alt="undariya purevdorj"
-                    style="width: 150px; 
-                    height: 150px; 
-                    border-radius: 15px; 
-                    object-fit: cover; 
-                    object-position: center 25%; 
-                    display: block;
-                    transform: scale(1.12);
-                    />
-            </div>
+                    style="width: 150px;
+                    height: 150px;
+                    border-radius: 15px;
+                    object-fit: cover;
+                    object-position: center 35%;   /* increased a bit to hide more of the top text */
+                    display: block; 
+                    transform: scale(1.15);
+                    transform-origin: center;"      /* ← This fixes the "tilted/shifted left" issue */
+                />
+        </div>
         </div>
     </section>
 
