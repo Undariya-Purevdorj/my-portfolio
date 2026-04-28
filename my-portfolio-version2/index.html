@@ -3,572 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>undariya purevdorj - portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <title>undariya purevdorj</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #f8f6f1;
+            --ink: #1a1a1a;
+            --muted: #888;
+            --faint: #ddd;
+            --accent: #1a1a1a;
+        }
+
+        html, body {
+            height: 100%;
         }
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: #ffffff;
-            color: #000000;
-            overflow-x: hidden;
-            text-transform: lowercase;
-            letter-spacing: 0.5px;
-            font-size: 16px;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .logo {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-            font-size: 13px;
-            letter-spacing: 0.8px;
-        }
-
-        nav a {
-            color: #000000;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        nav a:hover {
-            opacity: 0.5;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            position: relative;
-        }
-
-        /* Character container */
-        .character-container {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .character-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* Hi Text Animation */
-        .hi-text {
-            font-size: 56px;
-            font-weight: 700;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideIn 0.8s ease-out 1.8s forwards;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Sections */
-        section {
+            background: var(--bg);
+            color: var(--ink);
+            font-size: 15px;
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 100px 40px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        section h2 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            letter-spacing: 1.5px;
-        }
-
-        section p {
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
-        }
-
-        /* Technologies Section */
-        .tech-category {
-            margin-bottom: 30px;
-        }
-
-        .tech-category-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: 0.8px;
-            color: #666;
-        }
-
-        .tech-list {
-            font-size: 15px;
-            line-height: 1.8;
-            letter-spacing: 0.3px;
-        }
-
-        /* Projects */
-        .project-item {
-            margin-bottom: 40px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .project-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 0.8px;
-        }
-
-        .project-description {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #666;
-            letter-spacing: 0.3px;
-        }
-
-        .project-tech {
-            font-size: 12px;
-            margin-top: 10px;
-            color: #999;
-            letter-spacing: 0.5px;
-        }
-
-        /* Project image */
-        .project-image-container {
-            margin: 15px 0 20px 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e8e8e8;
-            max-width: 300px;
-        }
-
-        .project-image {
+        /* ── LAYOUT ── */
+        .page {
+            flex: 1;
+            max-width: 680px;
             width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .project-item:hover .project-image {
-            opacity: 0.92;
-            transition: opacity 0.25s ease;
-        }
-
-        /* Connect Icons */
-        .connect-icons {
+            margin: 0 auto;
+            padding: 64px 32px 32px;
             display: flex;
-            flex-direction: row;
-            gap: 32px;
-            margin-top: 24px;
+            flex-direction: column;
+            gap: 52px;
+        }
+
+        /* ── NAV ── */
+        nav {
+            display: flex;
             align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-name {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-transform: lowercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+            text-transform: lowercase;
+            letter-spacing: 0.03em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--ink); }
+
+        /* ── BIO SECTION ── */
+        .bio {
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .bio-text h1 {
+            font-family: 'DM Mono', monospace;
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+        }
+
+        .bio-text p {
+            color: #444;
+            font-size: 14.5px;
+            line-height: 1.75;
+            margin-bottom: 8px;
+        }
+
+        .bio-text p:last-child { margin-bottom: 0; }
+
+        .bio-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .bio-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: center 35%;
+            display: block;
+            border: 1px solid var(--faint);
+        }
+
+        .signature-svg {
+            width: 110px;
+            height: 38px;
+            opacity: 0.45;
+        }
+
+        .bio-tech {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+            background: #ebebeb;
+            padding: 3px 9px;
+            border-radius: 3px;
+            text-transform: lowercase;
+        }
+
+        /* ── SECTION HEADINGS ── */
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        /* ── PROJECTS ── */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .project-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: baseline;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--faint);
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .project-row:first-child { border-top: 1px solid var(--faint); }
+        .project-row:hover { opacity: 0.55; }
+
+        .project-row:hover .proj-name::after {
+            content: ' ↗';
+            font-size: 11px;
+        }
+
+        .proj-name {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .proj-desc {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+
+        .proj-tech {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: #aaa;
+            white-space: nowrap;
+            align-self: start;
+            margin-top: 2px;
+        }
+
+        /* ── CONNECT ── */
+        .connect-links {
+            display: flex;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        .connect-icon-link {
-            color: #000000;
-            transition: all 0.25s ease;
-            display: inline-block;
+        .connect-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .connect-icon-link:hover {
-            opacity: 0.65;
-            transform: scale(1.15);
+        .connect-links a:hover { color: var(--ink); }
+
+        .connect-links a span.bracket {
+            color: #ccc;
         }
 
-        .connect-icon-link svg {
-            width: 40px;
-            height: 40px;
-            fill: currentColor;
-            stroke: none;
+        /* ── FOOTER / SIGNATURE ── */
+        footer {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 32px 40px;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-
-            nav {
-                gap: 15px;
-                font-size: 10px;
-            }
-
-            .character-container {
-                width: 100px;
-                height: 100px;
-            }
-
-            .hi-text {
-                font-size: 32px;
-            }
-
-            section {
-                padding: 80px 20px;
-            }
-
-            .project-image-container {
-                margin: 12px 0 16px 0;
-            }
-
-            .connect-icons {
-                gap: 24px;
-            }
-
-            .connect-icon-link svg {
-                width: 36px;
-                height: 36px;
-            }
+        .footer-copy {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: #bbb;
+            letter-spacing: 0.04em;
         }
 
-        .project-title a,
-        .project-title a:link,
-        .project-title a:visited,
-        .project-title a:active {
-            text-decoration: none !important;
-            color: #000000 !important;
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.8px;
+        /* ── MOBILE ── */
+        @media (max-width: 600px) {
+            .page { padding: 40px 20px 24px; gap: 40px; }
+            .bio { grid-template-columns: 1fr; }
+            .bio-avatar { width: 80px; height: 80px; order: -1; }
+            footer { padding: 0 20px 32px; }
+            .connect-links { gap: 14px; }
         }
 
-        .project-title a:hover {
-            opacity: 0.5;
-            text-decoration: underline !important;
+        /* fade-in on load */
+        .page, footer {
+            animation: appear 0.6s ease both;
         }
-        
-        #about p {
-            margin-bottom: 4px;
+        footer { animation-delay: 0.15s; }
+
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        
-        #about {
-    text-align: left;
-        }
-        
-        #connect {
-    text-align: center;
-        }
-        
-        #connect .connect-icons {
-    justify-content: center;
-        }
-</style>
-    
+    </style>
 </head>
 <body>
-    <header>
-        <div class="logo">undariya purevdorj</div>
-        <nav>
-            <a href="#about">about me</a>
+
+<div class="page">
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-name">undariya purevdorj</div>
+        <div class="nav-links">
             <a href="#projects">projects</a>
-            <a href="#technologies">technologies</a>
-            <a href="#thoughts">thoughts</a>
             <a href="#connect">contact</a>
-        </nav>
-    </header>
-
-    <div class="hero">
-        <div class="hero-content">
-            <div class="character-container">
-                <img src="allay-avatar.gif" alt="character" class="character-image">
-            </div>
-            <div class="hi-text">hi</div>
         </div>
-    </div>
+    </nav>
 
-    <section id="about">
-        <div style="display: flex; align-items: flex-start; gap: 40px; text-align: left;">
-            <div style="flex: 1;">
-                <p>computer science student in toronto.</p>
-                <p>i care about performance and security.</p>
-                <p>i grew up between montréal and rennes.</p> 
-                <p>i play tennis, squash, and in general enjoy racquet sports.</p>
+    <!-- BIO -->
+    <section id="about" class="bio">
+        <div class="bio-text">
+            <h1>hi, i'm undariya.</h1>
+            <p>computer science student in toronto.</p>
+            <p>i care about performance and security. i grew up between montréal and rennes.</p>
+            <p>i play tennis, squash, and enjoy racquet sports in general.</p>
+
+            <div class="bio-tech">
+                <span class="tag">javascript</span>
+                <span class="tag">python</span>
+                <span class="tag">java</span>
+                <span class="tag">node.js</span>
+                <span class="tag">react</span>
+                <span class="tag">react native</span>
+                <span class="tag">django</span>
+                <span class="tag">mongodb</span>
+                <span class="tag">cybersecurity</span>
+                <span class="tag">systems</span>
             </div>
-            <div style="flex-shrink: 0;">
-                <img
-                    src="profilePicture.jpg"
-                    alt="undariya purevdorj"
-                    style="width: 150px;
-                    height: 150px;
-                    border-radius: 15px;
-                    object-fit: cover;
-                    object-position: center 35%;   /* increased a bit to hide more of the top text */
-                    display: block; 
-                    transform: scale(1.15);
-                    transform-origin: center;"      /* ← This fixes the "tilted/shifted left" issue */
-                />
         </div>
+        <div class="bio-right">
+            <img src="profilePicture.jpg" alt="undariya purevdorj" class="bio-avatar">
+            <svg class="signature-svg" viewBox="0 0 200 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 12 C8 12, 8 26, 9 28 C10 30, 12 30, 14 28 C16 26, 16 14, 16 14 C16 14, 16 28, 17 30 C18 32, 21 32, 22 28 L24 12" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M24 12 C26 14, 28 30, 30 32 C32 34, 35 30, 36 26 L37 12" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M37 12 C39 14, 40 28, 41 30 C43 33, 46 30, 47 26 C48 22, 49 15, 49 13 C49 11, 50 30, 51 32" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M51 32 C54 34, 60 30, 64 22 C68 14, 70 10, 74 14 C78 18, 76 32, 74 36 C72 40, 68 42, 65 38" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M65 38 C68 34, 80 20, 88 16 C96 12, 102 18, 100 26 C98 34, 90 36, 88 30 C86 24, 90 18, 96 22" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M96 22 C104 26, 116 30, 126 26 C136 22, 142 16, 148 20 C154 24, 150 34, 144 36" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M144 36 C150 38, 162 32, 170 28 C178 24, 184 20, 188 24" stroke="#1a1a1a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+            </svg>
         </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects">
-        <h2>projects (click on them)</h2>
-        
-        <div class="project-item">
-            <div class="project-title">
-                <a href="https://github.com/Undariya-Purevdorj/Dish-Detective-" target="_blank">dish detective</a>
-            </div>
-           <!-- <div class="project-image-container">
-                <img src="assets/Dish Detective Game Play.png" 
-                     alt="Dish Detective project screenshot" 
-                     class="project-image">
-            </div> -->
-            <div class="project-description">
-                A quiz game that challenges players to identify world cuisines using clues about ingredients, appearance, and origin. 
-                Built solo as a final class project to create an interactive way to expand culinary awareness through multiple-choice questions.
-            </div>
-            <div class="project-tech">js / node.js / npm</div>
-        </div>
+        <div class="section-label">projects</div>
+        <div class="projects-list">
 
-        <div class="project-item">
-            <div class="project-title">
-                <a href="https://github.com/Undariya-Purevdorj/BeWell-iOS-dev-app" target="_blank">bwell ios app</a>
-            </div>
-           <!-- <div class="project-image-container">
-                <img src="assets/BWell pic 1 .png" 
-                     alt="BeWell iOS app screenshot" 
-                     class="project-image">
-            </div> -->
-            <div class="project-description">
-                An iOS app to improve youth well-being through digital features. 
-                I handled back-end development with my team using React Native for the SHAD Design Entrepreneurship Challenge 2022.
-                no longer available on app store unfortunately.
-            </div>
-            <div class="project-tech">js / react native / expo / ios</div>
-        </div>
+            <a class="project-row" href="https://github.com/Undariya-Purevdorj/Dish-Detective-" target="_blank">
+                <div>
+                    <div class="proj-name">dish detective</div>
+                    <div class="proj-desc">quiz game — identify world cuisines from ingredients, appearance & origin clues.</div>
+                </div>
+                <div class="proj-tech">js / node.js</div>
+            </a>
 
-        <div class="project-item">
-            <div class="project-title">upcoming project</div>
-           <!-- <div class="project-image-container"> -->
+            <a class="project-row" href="https://github.com/Undariya-Purevdorj/BeWell-iOS-dev-app" target="_blank">
+                <div>
+                    <div class="proj-name">bwell ios app</div>
+                    <div class="proj-desc">ios app to improve youth well-being — built for the shad design entrepreneurship challenge 2022.</div>
+                </div>
+                <div class="proj-tech">react native / expo</div>
+            </a>
+
+            <div class="project-row" style="cursor: default; opacity: 0.45; pointer-events: none;">
+                <div>
+                    <div class="proj-name">upcoming project</div>
+                    <div class="proj-desc">something coming soon.</div>
+                </div>
+                <div class="proj-tech">java / spring boot</div>
             </div>
-            <div class="project-description">
-                a project coming up soon.
-            </div>
-            <div class="project-tech">java / spring boot / mongodb</div>
+
         </div>
     </section>
 
-
-    <section id="technologies">
-        <h2>technologies & languages</h2>
-        
-        <div class="tech-category">
-            <div class="tech-category-title">languages</div>
-            <div class="tech-list">proficient in javascript, basic python, basic java</div>
-        </div>
-
-        <div class="tech-category">
-            <div class="tech-category-title">frameworks & tools</div>
-            <div class="tech-list">node.js, react js, react native, expo, django, mongodb, latex</div>
-        </div>
-
-        <div class="tech-category">
-            <div class="tech-category-title">interests</div>
-            <div class="tech-list">systems programming, cybersecurity </div>
-        </div>
-    </section> 
-
-
-
-      <section id="thoughts">
-    <h2>thoughts</h2>
-    <p style="margin-bottom: 30px; color: #666; font-size: 14px;">
-        i write occasionally on substack — personal thoughts.
-    </p>
-    <div id="substack-posts">
-        <p style="color: #999; font-size: 14px;">loading posts...</p>
-    </div>
-    <div style="margin-top: 30px;">
-        <a href="https://jokernoir19.substack.com" target="_blank" 
-           style="font-size: 13px; color: #000; letter-spacing: 0.8px; text-decoration: none; border-bottom: 1px solid #000; padding-bottom: 2px;">
-            read on substack →
-        </a>
-    </div>
-    </section>
-    
-
-    
+    <!-- CONNECT -->
     <section id="connect">
-        <h2>connect with me</h2>
-        <div class="connect-icons">
-            
-            <!-- Gmail -->
-            <a href="/cdn-cgi/l/email-protection#f88d969c998a918199d6888d8a9d8e9c978a92b89f95999194d69b9795" class="connect-icon-link" title="Email">
-                <svg width="40" height="40" viewBox="0 0 512 512" fill="currentColor">
-                    <circle cx="256" cy="256" r="256"/>
-                    <path fill="#ffffff" d="M384,128H128c-17.6,0-32,14.4-32,32v192c0,17.6,14.4,32,32,32h256c17.6,0,32-14.4,32-32V160C416,142.4,401.6,128,384,128z M384,352H128V192l128,80l128-80V352z M256,240l-128-80h256L256,240z"/>
-                </svg>
+        <div class="section-label">connect</div>
+        <div class="connect-links">
+            <a href="mailto:undariya@example.com">
+                <span class="bracket">[e]</span> email
             </a>
-    
-            <!-- GitHub -->
-            <a href="https://github.com/Undariya-Purevdorj" target="_blank" class="connect-icon-link" title="GitHub">
-                <svg width="40" height="40" viewBox="0 0 98 98" fill="currentColor">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M49 0C21.9 0 0 22.4 0 50c0 22.1 14.3 40.8 34.2 47.4 2.5.5 3.4-1.1 3.4-2.4 0-1.2 0-4.3-.1-8.5-13.6 3-16.5-6.6-16.5-6.6-2.3-5.8-5.5-7.3-5.5-7.3-4.5-3.1.3-3 .3-3 5 .4 7.7 5.2 7.7 5.2 4.5 7.6 11.7 5.4 14.6 4.2.5-3.2 1.7-5.4 3.2-6.7-11.1-1.3-22.8-5.6-22.8-24.7 0-5.5 1.9-9.9 5.1-13.4-.5-1.3-2.2-6.3.5-13.2 0 0 4.2-1.3 13.7 5.1 4-1.1 8.3-1.7 12.5-1.7 4.2 0 8.5.6 12.5 1.7 9.5-6.5 13.7-5.1 13.7-5.1 2.7 6.9 1 12 .5 13.2 3.2 3.5 5.1 7.9 5.1 13.4 0 19.2-11.7 23.4-22.8 24.7 1.8 1.5 3.4 4.6 3.4 9.3 0 6.7-.1 12.1-.1 13.7 0 1.3.9 2.9 3.4 2.4C83.7 90.8 98 72.1 98 50 98 22.4 76.1 0 49 0z"/>
-                </svg>
+            <a href="https://github.com/Undariya-Purevdorj" target="_blank">
+                <span class="bracket">[g]</span> github
             </a>
-    
-            <!-- Devpost -->
-            <a href="https://devpost.com/undariya-p?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="_blank" class="connect-icon-link" title="Devpost">
-                <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="50" fill="currentColor"/>
-                    <path d="M35 25H50C58.284 25 65 31.716 65 40V60C65 68.284 58.284 75 50 75H35V25ZM42 32V68H50C54.418 68 58 64.418 58 60V40C58 35.582 54.418 32 50 32H42Z" fill="#ffffff"/>
-                </svg>
+            <a href="https://devpost.com/undariya-p" target="_blank">
+                <span class="bracket">[d]</span> devpost
             </a>
-    
-            <!-- X (Twitter) -->
-            <a href="https://x.com/jokerNoir19" target="_blank" class="connect-icon-link" title="X">
-                <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="50" fill="currentColor"/>
-                    <path d="M58 42L75 22H70L56 38L43 22H27L45 52L27 73H32L47 56L61 73H77L58 42ZM49 53L47 50L32 25H40L53 46L55 49L70 70H62L49 53Z" fill="#ffffff"/>
-                </svg>
+            <a href="https://x.com/jokerNoir19" target="_blank">
+                <span class="bracket">[x]</span> twitter
             </a>
-    
-            <!-- Spotify -->
-            <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" target="_blank" class="connect-icon-link" title="Spotify">
-                <svg width="40" height="40" viewBox="0 0 496 512" fill="currentColor">
-                    <path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/>
-                </svg>
+            <a href="https://open.spotify.com/user/nxpe3vt34tq740k0yy5rxq7bu" target="_blank">
+                <span class="bracket">[s]</span> spotify
             </a>
-
-            <!-- Monkeytype -->
-            <a href="https://monkeytype.com/profile/jokerNoir19" target="_blank" class="connect-icon-link" title="Monkeytype">
-                <svg width="40" height="40" viewBox="0 0 512 512" fill="currentColor">
-                    <path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/>
-                </svg>
+            <a href="https://monkeytype.com/profile/jokerNoir19" target="_blank">
+                <span class="bracket">[m]</span> monkeytype
             </a>
-    
+            <a href="https://jokernoir19.substack.com" target="_blank">
+                <span class="bracket">[w]</span> writing
+            </a>
         </div>
     </section>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
+</div>
 
-        // Scroll animation for sections
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
+<!-- FOOTER -->
+<footer>
+    <div class="footer-copy">© 2026 undariya purevdorj</div>
+</footer>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-
-    <script>
-    // Fetch Substack posts via RSS
-    fetch('https://api.rss2json.com/v1/api.json?rss_url=https://jokernoir19.substack.com/feed')
-        .then(res => res.json())
-        .then(data => {
-            const container = document.getElementById('substack-posts');
-            if (!data.items || data.items.length === 0) {
-                container.innerHTML = '<p style="color: #999; font-size: 14px;">no posts yet — coming soon.</p>';
-                return;
-            }
-            container.innerHTML = data.items.map(post => {
-                const date = new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                return `
-                    <div style="margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #e0e0e0;">
-                        <a href="${post.link}" target="_blank" 
-                           style="font-size: 15px; font-weight: 700; color: #000; text-decoration: none; letter-spacing: 0.5px;">
-                            ${post.title.toLowerCase()}
-                        </a>
-                        <div style="font-size: 12px; color: #999; margin-top: 6px; letter-spacing: 0.5px;">${date}</div>
-                    </div>
-                `;
-            }).join('');
-        })
-        .catch(() => {
-            document.getElementById('substack-posts').innerHTML = 
-                '<p style="color: #999; font-size: 14px;">couldn\'t load posts right now. <a href="https://jokernoir19.substack.com" target="_blank" style="color: #000;">visit substack directly →</a></p>';
-        });
-</script>
-            
 </body>
 </html>
