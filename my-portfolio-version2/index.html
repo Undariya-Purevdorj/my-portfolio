@@ -9,7 +9,7 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #f8f6f1;
+            --bg: #ffffff;
             --ink: #1a1a1a;
             --muted: #888;
             --faint: #ddd;
@@ -120,10 +120,10 @@
 
         .signature-svg {
             width: 220px;
-            height: 62px;
-            opacity: 0.55;
+            height: auto;
             margin-top: 18px;
             display: block;
+            mix-blend-mode: multiply;
         }
 
         .bio-tech {
@@ -281,13 +281,10 @@
     <section id="about">
         <div class="bio">
             <div class="bio-text">
-                
-               <!-- <h1>undariya purevdorj</h1> -->
-                
-                <p>computer science student @ york university</p>
-                <p>i care about performance and security.</p>
-                <p>grew up between montréal and rennes.</p>
-                <p>play tennis & squash</p>
+                <h1>hi, i'm undariya.</h1>
+                <p>computer science student in toronto.</p>
+                <p>i care about performance and security. i grew up between montréal and rennes.</p>
+                <p>i play tennis, squash, and enjoy racquet sports in general.</p>
 
                 <div class="bio-tech">
                     <span class="tag">javascript</span>
@@ -306,15 +303,14 @@
                 <img src="profilePicture.jpg" alt="undariya purevdorj" class="bio-avatar">
             </div>
         </div>
-        <svg class="signature-svg" viewBox="0 0 200 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 12 C8 12, 8 26, 9 28 C10 30, 12 30, 14 28 C16 26, 16 14, 16 14 C16 14, 16 28, 17 30 C18 32, 21 32, 22 28 L24 12" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M24 12 C26 14, 28 30, 30 32 C32 34, 35 30, 36 26 L37 12" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M37 12 C39 14, 40 28, 41 30 C43 33, 46 30, 47 26 C48 22, 49 15, 49 13 C49 11, 50 30, 51 32" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M51 32 C54 34, 60 30, 64 22 C68 14, 70 10, 74 14 C78 18, 76 32, 74 36 C72 40, 68 42, 65 38" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M65 38 C68 34, 80 20, 88 16 C96 12, 102 18, 100 26 C98 34, 90 36, 88 30 C86 24, 90 18, 96 22" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M96 22 C104 26, 116 30, 126 26 C136 22, 142 16, 148 20 C154 24, 150 34, 144 36" stroke="#1a1a1a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <path d="M144 36 C150 38, 162 32, 170 28 C178 24, 184 20, 188 24" stroke="#1a1a1a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
-        </svg>
+        <video 
+            class="signature-svg"
+            autoplay 
+            muted 
+            playsinline
+            onended="this.pause()">
+            <source src="signature.mov" type="video/quicktime">
+        </video>
     </section>
 
     <!-- PROJECTS -->
