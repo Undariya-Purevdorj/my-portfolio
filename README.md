@@ -1,8 +1,7 @@
 # undariya purevdorj – portfolio
 
 personal portfolio website  
-computer security student based in toronto  
-actively seeking 2025/2026 tech internships
+uni student based in toronto  
 
 ## preview
 
