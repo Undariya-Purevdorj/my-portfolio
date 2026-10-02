@@ -4,7 +4,7 @@ personal portfolio website
 computer security student based in toronto  
 actively seeking 2025/2026 tech internships
 
-[→ Live Demo](undariya.com)
+[→ official site](undariya.com)
 
 ## preview
 
