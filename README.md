@@ -4,8 +4,6 @@ personal portfolio website
 computer security student based in toronto  
 actively seeking 2025/2026 tech internships
 
-[→ official site](undariya.com)
-
 ## preview
 
 <img width="2817" height="1081" alt="image" src="https://github.com/user-attachments/assets/7da8466f-5027-447c-9837-b9b2b7c2fb47" />
